@@ -11,25 +11,47 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-2V1RWR1NNH'); // GA4 Measurement ID
+  gtag('config', 'G-2V1RWR1NNH');
 </script>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  /* Custom neon pulse for "Play Now" buttons */
+  @keyframes neon-pulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(255,223,0,0.5); }
+    50% { box-shadow: 0 0 20px rgba(255,223,0,0.9); }
+  }
+  .pulse-neon {
+    animation: neon-pulse 1.5s infinite alternate;
+  }
+
+  /* Floating circles diagonal animation */
+  @keyframes float-diagonal {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(20px, 20px); }
+    100% { transform: translate(0, 0); }
+  }
+  .float-circle {
+    animation: float-diagonal 8s ease-in-out infinite;
+  }
+</style>
 </head>
-<body class="font-roboto relative overflow-x-hidden bg-cover bg-center" style="background-image: url('background.png');">
+<body class="font-roboto relative overflow-x-hidden bg-cover bg-center" 
+      style="background-image: url('casino-images/background.png');">
 
   <!-- Decorative floating circles -->
-  <div class="absolute top-10 left-10 w-32 h-32 bg-yellow-200 rounded-full opacity-20 animate-pulse"></div>
-  <div class="absolute top-60 right-20 w-48 h-48 bg-yellow-300 rounded-full opacity-15 animate-pulse"></div>
-  <div class="absolute bottom-20 left-1/2 w-40 h-40 bg-yellow-100 rounded-full opacity-10 animate-pulse"></div>
+  <div class="absolute top-10 left-10 w-32 h-32 bg-yellow-200 rounded-full opacity-20 float-circle"></div>
+  <div class="absolute top-60 right-20 w-48 h-48 bg-yellow-300 rounded-full opacity-15 float-circle"></div>
+  <div class="absolute bottom-20 left-1/2 w-40 h-40 bg-yellow-100 rounded-full opacity-10 float-circle"></div>
 
   <div class="max-w-6xl mx-auto p-6 relative z-10">
     <!-- Glowing title -->
     <h1 class="text-4xl font-bold text-center mb-6 animate-bounce" 
-        style="color:#FF6A00; text-shadow: 0 0 10px #FF6A00, 0 0 20px #FF4500, 0 0 30px #FF6347;">
+        style="color:#FF8C42; text-shadow: 0 0 10px #FF8C42, 0 0 20px #FF9C60, 0 0 30px #FFB070;">
         🎰 Casino Rewards Hub PH
     </h1>
     <p class="text-center text-gray-700 mb-10 text-lg">Click below to claim your bonus and play!</p>
@@ -65,7 +87,7 @@
               <h2 class="text-xl font-semibold hover:text-yellow-400 hover:drop-shadow-lg transition-colors duration-300 text-center mt-2">${casino.name}</h2>
             </a>
             <a href="${casino.url}" target="_blank" onclick="trackClick('${casino.name}')" 
-               class="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,223,0,0.8)]">
+               class="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,223,0,0.8)] pulse-neon">
               Play Now
             </a>
           `;
