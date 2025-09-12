@@ -9,44 +9,49 @@
       margin: 0;
       font-family: Arial, sans-serif;
       color: #fff;
-      /* animated gradient background */
       background: linear-gradient(-45deg, #0f0f1e, #1b1b2f, #2a0845, #0f2027);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
       position: relative;
       overflow-x: hidden;
     }
+
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    /* overlay image */
+
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: url("casino-images/background.png") center/cover no-repeat;
-      opacity: 0.15; /* adjust intensity */
-      pointer-events: none; /* don’t block clicks */
+      opacity: 0.15;
+      pointer-events: none;
       z-index: 0;
     }
+
     header, .casino-grid {
       position: relative;
-      z-index: 1; /* keep content above overlay */
+      z-index: 1;
     }
+
     header {
       text-align: center;
       padding: 30px 20px;
     }
+
     header h1 {
       font-size: 2.5rem;
       margin-bottom: 10px;
     }
+
     header p {
       font-size: 1.2rem;
       color: #ddd;
     }
+
     .casino-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -55,6 +60,7 @@
       max-width: 1200px;
       margin: auto;
     }
+
     .casino-card {
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(6px);
@@ -62,22 +68,52 @@
       padding: 20px;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
     }
+
     .casino-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 215, 0, 0.4);
     }
-    .casino-card img {
+
+    .image-container {
+      position: relative;
       width: 100%;
-      max-height: 100px;
-      object-fit: contain;
-      margin-bottom: 10px;
+      height: 140px;
+      overflow: hidden;
+      border-radius: 10px;
     }
+
+    /* Breathing animation with staggered delay */
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease, height 0.3s ease;
+      animation: breathe 4s ease-in-out infinite;
+      animation-delay: calc(var(--i) * 0.3s);
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .image-container:hover img {
+      object-fit: contain;
+      height: 200px;
+      transform: scale(1.15);
+      background: #000;
+    }
+
     .casino-card h3 {
       margin: 10px 0;
       font-size: 1.2rem;
       color: #ffd700;
     }
+
     .btn {
       display: inline-block;
       margin-top: 10px;
@@ -89,6 +125,7 @@
       border-radius: 25px;
       transition: background 0.3s;
     }
+
     .btn:hover {
       background: linear-gradient(45deg, #ff6600, #ffcc00);
     }
@@ -101,65 +138,89 @@
   </header>
 
   <section class="casino-grid">
-    <div class="casino-card">
-      <img src="casino-images/365jl.png" alt="365JL">
-      <h3>365JL</h3>
-      <a href="#" class="btn">Play Now</a>
-    </div>
-    <div class="casino-card">
-      <img src="casino-images/37jl.png" alt="37JL">
-      <h3>37JL</h3>
-      <a href="#" class="btn">Play Now</a>
-    </div>
-    <div class="casino-card">
-      <img src="casino-images/77jl.png" alt="77JL">
-      <h3>77JL</h3>
-      <a href="#" class="btn">Play Now</a>
-    </div>
-    <div class="casino-card">
-      <img src="casino-images/93jl.png" alt="93JL">
-      <h3>93JL</h3>
-      <a href="#" class="btn">Play Now</a>
-    </div>
-    <div class="casino-card">
-      <img src="casino-images/apaldo.png" alt="Apaldo">
-      <h3>Apaldo</h3>
-      <a href="#" class="btn">Play Now</a>
-    </div>
-    <div class="casino-card">
-      <img src="casino-images/betso88.png" alt="Betso88">
-      <h3>Betso88</h3>
-      <a href="#" class="btn">Play Now</a>
-    </div>
-    <div class="casino-card">
-      <img src="casino-images/mnl168.png" alt="MNL168">
-      <h3>MNL168</h3>
-      <a href="#" class="btn">Play Now</a>
-    </div>
-    <div class="casino-card">
-      <img src="casino-images/mnl777.png" alt="MNL777">
+    <div class="casino-card" style="--i:0">
+      <div class="image-container">
+        <img src="casino-images/mnl777.png" alt="MNL777">
+      </div>
       <h3>MNL777</h3>
-      <a href="#" class="btn">Play Now</a>
+      <a href="https://www.mnl777.com.ph/?mid=EYNAHN" class="btn" target="_blank">Play Now</a>
     </div>
-    <div class="casino-card">
-      <img src="casino-images/pagtaya.png" alt="Pagtaya">
-      <h3>Pagtaya</h3>
-      <a href="#" class="btn">Play Now</a>
+    <div class="casino-card" style="--i:1">
+      <div class="image-container">
+        <img src="casino-images/pagtaya.png" alt="Pagtaya">
+      </div>
+      <h3>PAGTAYA</h3>
+      <a href="https://pagtayas.com/credirect/shareCode/230065679968108544" class="btn" target="_blank">Play Now</a>
     </div>
-    <div class="casino-card">
-      <img src="casino-images/phcrown.png" alt="PHCrown">
-      <h3>PHCrown</h3>
-      <a href="#" class="btn">Play Now</a>
+    <div class="casino-card" style="--i:2">
+      <div class="image-container">
+        <img src="casino-images/mnl168.png" alt="MNL168">
+      </div>
+      <h3>MNL168</h3>
+      <a href="https://mnl168.live/register?rid=15636&openExternalBrowser=1" class="btn" target="_blank">Play Now</a>
     </div>
-    <div class="casino-card">
-      <img src="casino-images/vipjl.png" alt="VIPJL">
-      <h3>VIPJL</h3>
-      <a href="#" class="btn">Play Now</a>
+    <div class="casino-card" style="--i:3">
+      <div class="image-container">
+        <img src="casino-images/betso88.png" alt="Betso88">
+      </div>
+      <h3>BETSO88</h3>
+      <a href="https://www.betsoreferral.com/?mid=st0ner" class="btn" target="_blank">Play Now</a>
     </div>
-    <div class="casino-card">
-      <img src="casino-images/vvjl.png" alt="VVJL">
+    <div class="casino-card" style="--i:4">
+      <div class="image-container">
+        <img src="casino-images/77jl.png" alt="77JL">
+      </div>
+      <h3>77JL</h3>
+      <a href="http://www.77jl333.com/?r=stn9352" class="btn" target="_blank">Play Now</a>
+    </div>
+    <div class="casino-card" style="--i:5">
+      <div class="image-container">
+        <img src="casino-images/365jl.png" alt="365JL">
+      </div>
+      <h3>365JL</h3>
+      <a href="https://586830.365jl368.com/?referralCode=jfq2320" class="btn" target="_blank">Play Now</a>
+    </div>
+    <div class="casino-card" style="--i:6">
+      <div class="image-container">
+        <img src="casino-images/vvjl.png" alt="VVJL">
+      </div>
       <h3>VVJL</h3>
-      <a href="#" class="btn">Play Now</a>
+      <a href="http://www.888vvjl.com/?r=ceh5623" class="btn" target="_blank">Play Now</a>
+    </div>
+    <div class="casino-card" style="--i:7">
+      <div class="image-container">
+        <img src="casino-images/93jl.png" alt="93JL">
+      </div>
+      <h3>93JL</h3>
+      <a href="http://www.93jl.today/?r=lup6070" class="btn" target="_blank">Play Now</a>
+    </div>
+    <div class="casino-card" style="--i:8">
+      <div class="image-container">
+        <img src="casino-images/37jl.png" alt="37JL">
+      </div>
+      <h3>37JL</h3>
+      <a href="http://www.37jl7.com/?r=dmz5267" class="btn" target="_blank">Play Now</a>
+    </div>
+    <div class="casino-card" style="--i:9">
+      <div class="image-container">
+        <img src="casino-images/phcrown.png" alt="PHCROWN">
+      </div>
+      <h3>PHCROWN</h3>
+      <a href="http://www.phcrown44.com/?r=ihm0779" class="btn" target="_blank">Play Now</a>
+    </div>
+    <div class="casino-card" style="--i:10">
+      <div class="image-container">
+        <img src="casino-images/apaldo.png" alt="APALDO">
+      </div>
+      <h3>APALDO</h3>
+      <a href="http://www.apaldo52.com/?r=mxd5669" class="btn" target="_blank">Play Now</a>
+    </div>
+    <div class="casino-card" style="--i:11">
+      <div class="image-container">
+        <img src="casino-images/vipjl.png" alt="VIPJL">
+      </div>
+      <h3>VIPJL</h3>
+      <a href="http://www.vipjl3.com/?r=vjn5578" class="btn" target="_blank">Play Now</a>
     </div>
   </section>
 </body>
