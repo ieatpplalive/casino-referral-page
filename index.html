@@ -64,11 +64,13 @@
     }
 
     .casino-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 20px;
-      transition: transform 0.3s, box-shadow 0.3s;
+  background: rgba(255, 255, 255, 0.08); /* more transparent */
+  backdrop-filter: blur(6px);            /* frosted glass effect */
+  border-radius: 15px;
+  padding: 20px;
+   transition: transform 0.3s, box-shadow 0.3s;
     }
+
 
     .casino-card:hover {
       transform: translateY(-8px);
@@ -178,3 +180,4 @@
   </main>
 </body>
 </html>
+
