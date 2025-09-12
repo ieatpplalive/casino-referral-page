@@ -4,198 +4,163 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casino Rewards Hub PH</title>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2V1RWR1NNH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-2V1RWR1NNH');
-  </script>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
-      min-height: 100vh;
-      background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #0f2027);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      /* animated gradient background */
+      background: linear-gradient(-45deg, #0f0f1e, #1b1b2f, #2a0845, #0f2027);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
+      position: relative;
+      overflow-x: hidden;
     }
-
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
+    /* overlay image */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("casino-images/background.png") center/cover no-repeat;
+      opacity: 0.15; /* adjust intensity */
+      pointer-events: none; /* don’t block clicks */
+      z-index: 0;
+    }
+    header, .casino-grid {
+      position: relative;
+      z-index: 1; /* keep content above overlay */
+    }
+    header {
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+    .casino-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
     .casino-card {
-      background: rgba(255, 255, 255, 0.08); /* semi-transparent */
-      backdrop-filter: blur(6px);            /* glass blur effect */
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
       border-radius: 15px;
       padding: 20px;
+      text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .casino-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+    .casino-card img {
+      width: 100%;
+      max-height: 100px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .casino-card h3 {
+      margin: 10px 0;
+      font-size: 1.2rem;
+      color: #ffd700;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      background: linear-gradient(45deg, #ffcc00, #ff6600);
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 25px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: linear-gradient(45deg, #ff6600, #ffcc00);
     }
   </style>
 </head>
-<body class="text-white">
-  <div class="max-w-7xl mx-auto p-6">
-    <h1 class="text-4xl font-bold text-center mb-6">🎰 Casino Rewards Hub PH</h1>
-    <p class="text-center text-gray-200 mb-10">Click below to claim your bonus and play!</p>
+<body>
+  <header>
+    <h1>Casino Rewards Hub PH</h1>
+    <p>Claim bonuses and play at top online casinos in the Philippines!</p>
+  </header>
 
-    <!-- Casino Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-      <!-- MNL777 -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="https://www.mnl777.com.ph/?mid=EYNAHN" target="_blank" onclick="trackClick('MNL777')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/mnl777.png" alt="MNL777 Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">MNL777</h2>
-        </a>
-        <a href="https://www.mnl777.com.ph/?mid=EYNAHN" target="_blank" onclick="trackClick('MNL777')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- PAGTAYA -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="https://pagtayas.com/credirect/shareCode/230065679968108544" target="_blank" onclick="trackClick('PAGTAYA')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/pagtaya.png" alt="PAGTAYA Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">PAGTAYA</h2>
-        </a>
-        <a href="https://pagtayas.com/credirect/shareCode/230065679968108544" target="_blank" onclick="trackClick('PAGTAYA')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- MNL168 -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="https://mnl168.live/register?rid=15636&openExternalBrowser=1" target="_blank" onclick="trackClick('MNL168')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/mnl168.png" alt="MNL168 Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">MNL168</h2>
-        </a>
-        <a href="https://mnl168.live/register?rid=15636&openExternalBrowser=1" target="_blank" onclick="trackClick('MNL168')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- BETSO88 -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="https://www.betsoreferral.com/?mid=st0ner" target="_blank" onclick="trackClick('BETSO88')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/betso88.png" alt="BETSO88 Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">BETSO88</h2>
-        </a>
-        <a href="https://www.betsoreferral.com/?mid=st0ner" target="_blank" onclick="trackClick('BETSO88')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- 77JL -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="http://www.77jl333.com/?r=stn9352" target="_blank" onclick="trackClick('77JL')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/77jl.png" alt="77JL Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">77JL</h2>
-        </a>
-        <a href="http://www.77jl333.com/?r=stn9352" target="_blank" onclick="trackClick('77JL')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- 365JL -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="https://586830.365jl368.com/?referralCode=jfq2320" target="_blank" onclick="trackClick('365JL')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/365jl.png" alt="365JL Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">365JL</h2>
-        </a>
-        <a href="https://586830.365jl368.com/?referralCode=jfq2320" target="_blank" onclick="trackClick('365JL')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- VVJL -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="http://www.888vvjl.com/?r=ceh5623" target="_blank" onclick="trackClick('VVJL')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/vvjl.png" alt="VVJL Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">VVJL</h2>
-        </a>
-        <a href="http://www.888vvjl.com/?r=ceh5623" target="_blank" onclick="trackClick('VVJL')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- 93JL -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="http://www.93jl.today/?r=lup6070" target="_blank" onclick="trackClick('93JL')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/93jl.png" alt="93JL Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">93JL</h2>
-        </a>
-        <a href="http://www.93jl.today/?r=lup6070" target="_blank" onclick="trackClick('93JL')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- 37JL -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="http://www.37jl7.com/?r=dmz5267" target="_blank" onclick="trackClick('37JL')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/37jl.png" alt="37JL Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">37JL</h2>
-        </a>
-        <a href="http://www.37jl7.com/?r=dmz5267" target="_blank" onclick="trackClick('37JL')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- PHCROWN -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="http://www.phcrown44.com/?r=ihm0779" target="_blank" onclick="trackClick('PHCROWN')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/phcrown.png" alt="PHCROWN Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">PHCROWN</h2>
-        </a>
-        <a href="http://www.phcrown44.com/?r=ihm0779" target="_blank" onclick="trackClick('PHCROWN')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- APALDO -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="http://www.apaldo52.com/?r=mxd5669" target="_blank" onclick="trackClick('APALDO')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/apaldo.png" alt="APALDO Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">APALDO</h2>
-        </a>
-        <a href="http://www.apaldo52.com/?r=mxd5669" target="_blank" onclick="trackClick('APALDO')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
-      <!-- VIPJL -->
-      <div class="casino-card flex flex-col items-center">
-        <a href="http://www.vipjl3.com/?r=vjn5578" target="_blank" onclick="trackClick('VIPJL')" class="flex flex-col items-center mb-4">
-          <img src="casino-images/vipjl.png" alt="VIPJL Logo" class="w-full h-32 object-contain rounded-lg">
-          <h2 class="text-xl font-semibold mt-2">VIPJL</h2>
-        </a>
-        <a href="http://www.vipjl3.com/?r=vjn5578" target="_blank" onclick="trackClick('VIPJL')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full">
-          Play Now
-        </a>
-      </div>
-
+  <section class="casino-grid">
+    <div class="casino-card">
+      <img src="casino-images/365jl.png" alt="365JL">
+      <h3>365JL</h3>
+      <a href="#" class="btn">Play Now</a>
     </div>
-  </div>
-
-  <script>
-    function trackClick(casinoName) {
-      gtag('event', 'click', {
-        'event_category': 'Casino Links',
-        'event_label': casinoName
-      });
-    }
-  </script>
+    <div class="casino-card">
+      <img src="casino-images/37jl.png" alt="37JL">
+      <h3>37JL</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+    <div class="casino-card">
+      <img src="casino-images/77jl.png" alt="77JL">
+      <h3>77JL</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+    <div class="casino-card">
+      <img src="casino-images/93jl.png" alt="93JL">
+      <h3>93JL</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+    <div class="casino-card">
+      <img src="casino-images/apaldo.png" alt="Apaldo">
+      <h3>Apaldo</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+    <div class="casino-card">
+      <img src="casino-images/betso88.png" alt="Betso88">
+      <h3>Betso88</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+    <div class="casino-card">
+      <img src="casino-images/mnl168.png" alt="MNL168">
+      <h3>MNL168</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+    <div class="casino-card">
+      <img src="casino-images/mnl777.png" alt="MNL777">
+      <h3>MNL777</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+    <div class="casino-card">
+      <img src="casino-images/pagtaya.png" alt="Pagtaya">
+      <h3>Pagtaya</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+    <div class="casino-card">
+      <img src="casino-images/phcrown.png" alt="PHCrown">
+      <h3>PHCrown</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+    <div class="casino-card">
+      <img src="casino-images/vipjl.png" alt="VIPJL">
+      <h3>VIPJL</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+    <div class="casino-card">
+      <img src="casino-images/vvjl.png" alt="VVJL">
+      <h3>VVJL</h3>
+      <a href="#" class="btn">Play Now</a>
+    </div>
+  </section>
 </body>
 </html>
